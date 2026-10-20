@@ -1,0 +1,439 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f5f7f3;
+  color: #213e38;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+
+
+.hero {
+  position: relative;
+  background: #173d35;
+  color: white;
+  text-align: center;
+  padding: 65px 24px;
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: #acd9c0;
+  font-weight: 700;
+  margin: 0;
+}
+
+.hero h1 {
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 16px 0;
+  color: white;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #d4e7dc;
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+
+
+
+main {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 35px 22px;
+}
+
+.intro,
+.story {
+  max-width: 760px;
+  margin: 45px auto;
+}
+
+.intro p,
+.story p {
+  font-size: 15px;
+  line-height: 1.8;
+  margin: 0 0 16px;
+}
+
+
+
+h2 {
+  color: #173d35;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+
+.chart-card > h2,
+.species-section > h2,
+.seasonal-story > h2,
+.intro h2,
+.story h2 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 18px;
+  line-height: 1.4;
+}
+
+ Chart subheadings */
+.chart-card h3,
+.species-panel h3,
+.seasonal-panel h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #173d35;
+  line-height: 1.4;
+  margin: 0 0 10px;
+}
+
+.chart-card {
+  background: #ffffff;
+  padding: 35px;
+  margin: 35px auto;
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.06);
+  min-width: 0;
+}
+
+.chart-description {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #526e65;
+  margin: 0 0 25px;
+}
+
+.chart-note {
+  font-size: 12px;
+  line-height: 1.65;
+  color: #566c63;
+  margin: 20px 0 12px;
+}
+
+.source {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #70837a;
+  margin: 12px 0 0;
+}
+
+
+.vega-embed {
+  max-width: 100%;
+}
+
+.vega-embed svg {
+  max-width: 100%;
+  height: auto;
+}
+
+#frog-richness-map,
+#state-frog-map,
+#species-state-heatmap,
+#top10-frog-chart,
+#frog-trend-chart,
+#frog-species-streamgraph,
+#frog-state-seasons,
+#frog-hotspot-map {
+  width: 100%;
+  min-width: 0;
+}
+
+
+#frog-richness-map {
+  min-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+
+
+#state-frog-map {
+  min-height: 430px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+
+
+.species-section {
+  width: 100%;
+  margin: 35px auto;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+ Section heading and description */
+.species-section > h2,
+.species-section > .chart-description {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+
+.species-comparison {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.15fr)
+    minmax(0, 1fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+
+.species-panel {
+  background: #ffffff;
+  padding: 22px 16px;
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.06);
+  min-width: 0;
+  overflow: visible;
+}
+.species-panel h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+
+
+.species-panel p {
+  color: #526e65;
+  font-size: 12px;
+  line-height: 1.65;
+  margin: 0 0 15px;
+}
+
+
+#species-state-heatmap,
+#top10-frog-chart {
+  width: 100%;
+  min-width: 0;
+}
+
+#species-state-heatmap .vega-embed,
+#top10-frog-chart .vega-embed {
+  max-width: 100%;
+}
+
+ Notes underneath the two cards */
+.species-section > .chart-note,
+.species-section > .source {
+  margin-left: 0;
+}
+
+
+#frog-trend-chart {
+  min-height: 380px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.seasonal-story {
+  padding: 35px;
+}
+
+.seasonal-panel {
+  margin-top: 30px;
+}
+
+.seasonal-panel h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 10px;
+}
+
+.seasonal-panel > p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #526e65;
+  margin: 0 0 16px;
+}
+
+.seasonal-transition {
+  margin: 32px 0 28px;
+  padding: 0 0 0 15px;
+  border-left: 3px solid #32877e;
+  background: transparent;
+  border-radius: 0;
+}
+
+.seasonal-transition h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #315b50;
+  line-height: 1.45;
+  margin: 0 0 6px;
+}
+
+.seasonal-transition p {
+  font-size: 13px;
+  line-height: 1.65;
+  color: #526e65;
+  margin: 0;
+}
+
+#frog-species-streamgraph,
+#frog-state-seasons {
+  margin: 20px 0;
+}
+
+
+#frog-species-streamgraph select,
+#frog-state-seasons select {
+  margin: 8px;
+  padding: 7px 10px;
+  border: 1px solid #b7ccc5;
+  border-radius: 6px;
+  background: white;
+  color: #173d35;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+}
+
+#frog-hotspot-map {
+  min-height: 470px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  background: #173d35;
+  color: #ffffff;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+footer p {
+  margin: 5px 0;
+}
+
+
+
+@media (max-width: 800px) {
+  main {
+    padding: 24px 16px;
+  }
+
+  .chart-card,
+  .seasonal-story {
+    padding: 24px;
+  }
+
+
+  .species-comparison {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+  }
+
+  .species-panel {
+    padding: 22px;
+  }
+}
+
+
+
+@media (max-width: 700px) {
+  body {
+    font-size: 14px;
+  }
+
+  .hero {
+    padding: 45px 18px;
+  }
+
+  .hero h1 {
+    font-size: clamp(30px, 7vw, 40px);
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+  main {
+    padding: 18px 12px;
+  }
+
+  .intro,
+  .story {
+    margin: 30px auto;
+  }
+
+  .chart-card,
+  .seasonal-story {
+    padding: 18px 14px;
+    margin: 22px auto;
+    border-radius: 12px;
+  }
+
+  .species-section {
+    margin: 22px auto;
+    padding: 0;
+  }
+
+  .species-panel {
+    padding: 18px 14px;
+  }
+
+  .chart-card > h2,
+  .species-section > h2,
+  .seasonal-story > h2,
+  .intro h2,
+  .story h2 {
+    font-size: 19px;
+  }
+
+  .chart-card h3,
+  .species-panel h3,
+  .seasonal-panel h3 {
+    font-size: 15px;
+  }
+
+  .chart-description {
+    font-size: 13px;
+  }
+
+  .seasonal-transition {
+    margin: 26px 0 22px;
+    padding-left: 12px;
+  }
+
+  #frog-richness-map {
+    min-height: 280px;
+  }
+
+  #state-frog-map {
+    min-height: 300px;
+  }
+
+  #frog-trend-chart {
+    min-height: 300px;
+  }
+
+  #frog-hotspot-map {
+    min-height: 350px;
+  }
+}

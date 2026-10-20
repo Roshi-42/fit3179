@@ -1,0 +1,152 @@
+
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Seasonal shares of FrogID occurrence records across Australian states.",
+  "width": "container",
+  "height": 420,
+
+  "data": {
+    "url": "data/frog_state_seasons.csv"
+  },
+
+  "params": [
+    {
+      "name": "selectedPeriod",
+      "value": "All years",
+      "bind": {
+        "input": "select",
+        "name": "Select year: ",
+        "options": [
+          "All years",
+          "2017",
+          "2018",
+          "2019",
+          "2020",
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ]
+      }
+    }
+  ],
+
+  "transform": [
+    {
+      "filter": "datum.period === selectedPeriod"
+    }
+  ],
+
+  "mark": {
+    "type": "bar",
+    "stroke": "white",
+    "strokeWidth": 1.2
+  },
+
+  "encoding": {
+    "x": {
+      "field": "state",
+      "type": "nominal",
+      "title": null,
+      "sort": [
+        "Western Australia",
+        "Northern Territory",
+        "South Australia",
+        "Queensland",
+        "New South Wales",
+        "Australian Capital Territory",
+        "Victoria",
+        "Tasmania"
+      ],
+      "axis": {
+        "labelAngle": -35,
+        "labelLimit": 115,
+        "labelFontSize": 11
+      }
+    },
+
+    "y": {
+      "field": "share",
+      "type": "quantitative",
+      "title": "Share of FrogID records",
+      "stack": "zero",
+      "scale": {
+        "domain": [0, 1]
+      },
+      "axis": {
+        "format": ".0%",
+        "grid": true,
+        "gridColor": "#E7EEEA"
+      }
+    },
+
+    "color": {
+      "field": "season",
+      "type": "nominal",
+      "title": "Australian season",
+      "scale": {
+        "domain": [
+          "Summer",
+          "Autumn",
+          "Winter",
+          "Spring"
+        ],
+        "range": [
+          "#E6AD72",
+          "#A1C89D",
+          "#4A92AD",
+          "#7D6BAE"
+        ]
+      },
+      "legend": {
+        "orient": "top"
+      }
+    },
+
+    "order": {
+      "field": "season",
+      "type": "nominal",
+      "sort": [
+        "Summer",
+        "Autumn",
+        "Winter",
+        "Spring"
+      ]
+    },
+
+    "tooltip": [
+      {
+        "field": "state",
+        "title": "State"
+      },
+      {
+        "field": "period",
+        "title": "Period"
+      },
+      {
+        "field": "season",
+        "title": "Season"
+      },
+      {
+        "field": "records",
+        "type": "quantitative",
+        "title": "Occurrence records",
+        "format": ","
+      },
+      {
+        "field": "share",
+        "type": "quantitative",
+        "title": "Share of state records",
+        "format": ".1%"
+      }
+    ]
+  },
+
+  "config": {
+    "background": "#FFFFFF",
+    "view": {
+      "stroke": null
+    },
+    "font": "Arial"
+  }
+}

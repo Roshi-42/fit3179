@@ -1,0 +1,70 @@
+
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "description": "The ten most frequently recorded frog species in the FrogID 7.0 dataset.",
+
+  "width": "container",
+  "height": 420,
+
+  "data": {
+    "url": "data/top10_species_national.csv"
+  },
+
+  "mark": {
+    "type": "bar",
+    "cornerRadiusEnd": 4,
+    "color": "#32877E"
+  },
+
+  "encoding": {
+    "y": {
+      "field": "species",
+      "type": "nominal",
+      "title": null,
+      "sort": "-x",
+      "axis": {
+        "labelFontSize": 12,
+        "labelLimit": 220,
+        "labelFontStyle": "italic"
+      }
+    },
+
+    "x": {
+      "field": "records",
+      "type": "quantitative",
+      "title": "Number of FrogID occurrence records",
+      "axis": {
+        "format": "~s",
+        "grid": true,
+        "gridColor": "#E5EBE7",
+        "tickCount": 5
+      },
+      "scale": {
+        "zero": true
+      }
+    },
+
+    "tooltip": [
+      {
+        "field": "species",
+        "type": "nominal",
+        "title": "Frog species"
+      },
+      {
+        "field": "records",
+        "type": "quantitative",
+        "title": "Occurrence records",
+        "format": ","
+      }
+    ]
+  },
+
+  "config": {
+    "background": "#FFFFFF",
+    "view": {
+      "stroke": null
+    },
+    "font": "Arial"
+  }
+}

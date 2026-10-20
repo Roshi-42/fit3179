@@ -1,0 +1,127 @@
+
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Seasonal streamgraph of the ten most frequently recorded frog species in FrogID 7.0.",
+  "width": "container",
+  "height": 390,
+
+  "data": {
+    "url": "data/top10_species_month.csv"
+  },
+
+  "params": [
+    {
+      "name": "selectedSpecies",
+      "value": "All species",
+      "bind": {
+        "input": "select",
+        "name": "Highlight species: ",
+        "options": [
+          "All species",
+          "Crinia signifera",
+          "Limnodynastes peronii",
+          "Pengilleyia peronii",
+          "Drymomantis fallax",
+          "Limnodynastes tasmaniensis",
+          "Crinia parinsignifera",
+          "Limnodynastes dumerilii",
+          "Pelodryas caerulea",
+          "Rawlinsonia ewingii",
+          "Rawlinsonia verreauxii"
+        ]
+      }
+    }
+  ],
+
+  "mark": {
+    "type": "area",
+    "interpolate": "monotone"
+  },
+
+  "encoding": {
+    "x": {
+      "field": "month",
+      "type": "quantitative",
+      "title": "Calendar month (all years pooled)",
+      "scale": {
+        "domain": [1, 12]
+      },
+      "axis": {
+        "values": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+        "labelExpr": "['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][datum.value - 1]",
+        "labelAngle": 0,
+        "grid": false
+      }
+    },
+
+    "y": {
+      "field": "records",
+      "type": "quantitative",
+      "stack": "center",
+      "title": null,
+      "axis": null
+    },
+
+    "color": {
+      "field": "species",
+      "type": "nominal",
+      "title": "Frog species",
+      "scale": {
+        "scheme": "tableau20"
+      },
+      "legend": {
+        "orient": "bottom",
+        "columns": 2,
+        "labelLimit": 200
+      }
+    },
+
+    "order": {
+      "field": "species",
+      "type": "nominal",
+      "sort": "ascending"
+    },
+
+    "opacity": {
+      "condition": {
+        "test": "selectedSpecies == 'All species' || datum.species == selectedSpecies",
+        "value": 0.96
+      },
+      "value": 0.12
+    },
+
+    "tooltip": [
+      {
+        "field": "species",
+        "type": "nominal",
+        "title": "Species"
+      },
+      {
+        "field": "month",
+        "type": "quantitative",
+        "title": "Month",
+        "format": "d"
+      },
+      {
+        "field": "records",
+        "type": "quantitative",
+        "title": "Occurrence records",
+        "format": ","
+      },
+      {
+        "field": "month_share_pct",
+        "type": "quantitative",
+        "title": "Share of top-10 records that month (%)",
+        "format": ".1f"
+      }
+    ]
+  },
+
+  "config": {
+    "background": "#FFFFFF",
+    "view": {
+      "stroke": null
+    },
+    "font": "Arial"
+  }
+}

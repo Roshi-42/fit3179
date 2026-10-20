@@ -1,0 +1,71 @@
+
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "description": "Annual changes in FrogID occurrence records across Australia from 2017 to 2024.",
+
+  "width": "container",
+  "height": 350,
+
+  "data": {
+    "url": "data/year_counts.csv"
+  },
+
+  "mark": {
+    "type": "line",
+    "point": {
+      "filled": true,
+      "size": 100
+    },
+    "strokeWidth": 3,
+    "color": "#32877E"
+  },
+
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "title": "Year",
+      "axis": {
+        "labelAngle": 0,
+        "labelFontSize": 12
+      }
+    },
+
+    "y": {
+      "field": "records",
+      "type": "quantitative",
+      "title": "FrogID occurrence records",
+      "scale": {
+        "zero": true
+      },
+      "axis": {
+        "format": "~s",
+        "grid": true,
+        "gridColor": "#E5EBE7"
+      }
+    },
+
+    "tooltip": [
+      {
+        "field": "year",
+        "type": "ordinal",
+        "title": "Year"
+      },
+      {
+        "field": "records",
+        "type": "quantitative",
+        "title": "Frog observations",
+        "format": ","
+      }
+    ]
+  },
+
+  "config": {
+    "background": "#FFFFFF",
+    "view": {
+      "stroke": null
+    },
+    "font": "Arial"
+  }
+}

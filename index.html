@@ -1,0 +1,396 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Australia's Changing Chorus | Frog Diversity</title>
+
+
+  <link rel="stylesheet" href="style.css">
+
+
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+
+<body>
+
+
+  <header class="hero">
+    <p class="eyebrow">AUSTRALIAN BIODIVERSITY</p>
+
+    <h1>Australia's Changing Chorus</h1>
+
+    <p class="subtitle">
+      Exploring the diversity, distribution and future
+      of Australia's frogs.
+    </p>
+  </header>
+
+  <main>
+
+
+    <section class="intro">
+      <h2>Australia: A Nation of Frogs and Amphibians</h2>
+
+      <p>
+        From tropical rainforests to coastal wetlands and
+        inland habitats, Australia's frogs can be find in various environments.
+      </p>
+
+      <p>
+        But frog diversity is not distributed equally
+        across the country. Where do the greatest numbers
+        of different species occur, and which states
+        have recorded the widest variety of frogs?
+      </p>
+    </section>
+
+
+    <section class="chart-card">
+
+      <h2>01. Where Is Frog Diversity Greatest?</h2>
+
+      <p class="chart-description">
+        The Australian Frog Atlas maps how the number
+        of different frog species varies geographically.
+        Darker regions indicate higher species richness.
+      </p>
+
+      <div id="frog-richness-map"></div>
+
+      <p class="chart-note">
+        Species richness refers to the number of different
+        species in certain areas, not the total number of frogs
+        in an area.
+      </p>
+
+      <p class="source">
+        Source: Australian Frog Atlas 4.0 (2026).
+      </p>
+
+    </section>
+
+
+    <section class="story">
+      <h2>From Geographic Diversity to Recorded Species</h2>
+
+      <p>
+        The first map shows how frog species richness
+        varies across Australia. However, another way to
+        understand frog diversity is to examine which
+        species have been recorded by people in different
+        states and territories.
+      </p>
+
+      <p>
+        The FrogID citizen-science project provides
+        observations submitted across Australia,
+        allowing us to compare recorded frog diversity
+        between states.
+      </p>
+    </section>
+
+
+    <section class="chart-card">
+
+      <h2>02. Which States Have the Most Recorded Frog Species?</h2>
+
+      <p class="chart-description">
+        This map compares the number of distinct frog
+        species identified through FrogID observations
+        in each Australian state and territory.
+      </p>
+
+      <div id="state-frog-map"></div>
+
+      <p class="chart-note">
+        These counts represent species recorded through
+        FrogID rather than the total number of frog
+        species living in each state. Recording effort
+        varies between regions.
+      </p>
+
+      <p class="source">
+        Source: Australian Museum, FrogID Dataset 7.0
+        (2017–2024).
+      </p>
+
+    </section>
+
+ 
+    <section class="story">
+      <h2>What Do the Observations Reveal?</h2>
+
+      <p>
+        Queensland has the highest recorded species
+        richness in this FrogID dataset, with 106
+        distinct species. New South Wales follows
+        with 84, while Western Australia has 77.
+      </p>
+
+      <p>
+        These differences may reflect environmental
+        conditions, geographic distributions and
+        variation in recording effort. They should not
+        be interpreted as a direct measure of total
+        frog populations.
+      </p>
+    </section>
+
+
+  
+<section class="species-section">
+
+  <h2>
+    Which Frogs Do Australians Record Most Often?
+  </h2>
+
+  <p class="chart-description">
+    The national ranking reveals Australia's most
+    frequently recorded frogs, while the heatmap
+    shows how these species feature in FrogID
+    observations across states.
+  </p>
+
+  <div class="species-comparison">
+
+
+    <div class="species-panel">
+
+      <h3>
+        03. How Do Species Differ Across States?
+      </h3>
+
+      <p>
+        Each cell represents a species' percentage
+        of the records submitted in that state.
+      </p>
+
+      <div id="species-state-heatmap"></div>
+
+    </div>
+
+
+    <div class="species-panel">
+
+      <h3>
+        04. Australia's Top 10 Recorded Frogs
+      </h3>
+
+      <p>
+        The total number of FrogID occurrence
+        records for each species across Australia.
+      </p>
+
+      <div id="top10-frog-chart"></div>
+
+    </div>
+
+  </div>
+
+  <p class="chart-note">
+    FrogID occurrence records do not represent
+    the number of individual frogs.
+    Recording effort varies by location.
+  </p>
+
+  <p class="source">
+    Source: Australian Museum,
+    FrogID Dataset 7.0 (2017–2024).
+  </p>
+
+</section>
+
+
+
+
+<section class="chart-card seasonal-story">
+
+  <h2>A Seasonal Chorus: When Does Australia Record Its Frogs?</h2>
+
+  <p class="chart-description">
+    FrogID recordings change throughout the year.
+    But are these seasonal patterns the same for
+    every frog species and every Australian state?
+  </p>
+
+  <div class="seasonal-panel">
+
+    <h3>06. Which Frog Species Are Recorded Most Often Throughout the Year?</h3>
+
+    <p>
+      Each flowing band represents one of Australia's
+      ten most frequently recorded frog species.
+      Thicker bands represent more occurrence records.
+    </p>
+
+    <div id="frog-species-streamgraph"></div>
+
+  </div>
+
+
+  <div class="seasonal-transition">
+
+    <h3>But do all Australian states follow the same seasonal patterns?</h3>
+
+    <p>
+      Australia spans tropical and temperate climates.
+      Compare how the distribution of FrogID recordings
+      changes across states and territories.
+    </p>
+
+  </div>
+
+
+  <div class="seasonal-panel">
+
+    <h3>07. Do Frog Recording Seasons Differ Across States?</h3>
+
+    <p>
+      Each bar shows the percentage of FrogID records
+      submitted in summer, autumn, winter and spring
+      for each Australian state.
+    </p>
+
+    <div id="frog-state-seasons"></div>
+
+    <p class="chart-note">
+      Summer: Dec-Feb; Autumn: Mar-May;
+      Winter: Jun-Aug; Spring: Sep-Nov.
+      The chart shows recording patterns,
+      not estimated frog populations.
+    </p>
+
+  </div>
+
+  <p class="source">
+    Source: Australian Museum, FrogID Dataset 7.0.
+  </p>
+
+</section>
+
+
+<section class="chart-card">
+
+  <h2>08. Where Are Australia's Frog Recording Hotspots?</h2>
+
+  <p class="chart-description">
+    FrogID observations are not distributed evenly
+    across Australia. This map shows the geographic
+    concentration of frog occurrence records,
+    with larger circles indicating more records
+    within a one-degree geographic grid cell.
+  </p>
+
+  <div id="frog-hotspot-map"></div>
+
+  <p class="chart-note">
+    Each circle represents a 1° × 1° geographic cell.
+    High recording activity may reflect proximity
+    to population centres and differences in
+    citizen-science participation, rather than
+    greater frog population abundance.
+  </p>
+
+  <p class="source">
+    Source: Australian Museum, FrogID Dataset 7.0.
+  </p>
+
+</section>
+
+
+  </main>
+
+
+  <footer>
+    <p>FIT3179 Data Visualisation 2</p>
+    <p>Australia's Changing Chorus</p>
+    <p>Data: Australian Frog Atlas and Australian Museum FrogID</p>
+  </footer>
+
+
+  <script>
+
+   
+    vegaEmbed(
+      "#frog-richness-map",
+      "charts/1-grid-map-frog-species.json",
+      {
+        actions: false,
+        renderer: "svg"
+      }
+    ).catch(console.error);
+
+
+  
+    vegaEmbed(
+      "#state-frog-map",
+      "charts/2-state-by-frog-species.json",
+      {
+        actions: false,
+        renderer: "svg"
+      }
+    ).catch(console.error);
+
+    vegaEmbed(
+      "#species-state-heatmap",
+      "charts/3-species-state-heatmap.json",
+      { actions: false, renderer: "svg" }
+    ).catch(console.error);
+
+    vegaEmbed(
+      "#top10-frog-chart",
+      "charts/4-top10-frog-species.json",
+      { actions: false, renderer: "svg" }
+    ).catch(console.error);
+
+  vegaEmbed(
+    "#frog-trend-chart",
+    "charts/5-frogs-observation-trend.json",
+    {
+      actions: false,
+      renderer: "svg"
+    }
+  ).catch(console.error);
+
+
+  
+vegaEmbed(
+  "#frog-species-streamgraph",
+  "charts/6-species-streamgraph.json",
+  {
+    actions: false,
+    renderer: "svg"
+  }
+).catch(console.error);
+
+vegaEmbed(
+  "#frog-state-seasons",
+  "charts/8-state-season-stacked-bars.json",
+  {
+    actions: false,
+    renderer: "svg"
+  }
+).catch(console.error);
+
+
+vegaEmbed(
+  "#frog-hotspot-map",
+  "charts/7-frog-hotspot-map.json",
+  {
+    actions: false,
+    renderer: "svg"
+  }
+).catch(console.error);
+
+
+
+  </script>
+
+</body>
+</html>

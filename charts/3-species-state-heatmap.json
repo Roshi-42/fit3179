@@ -1,0 +1,114 @@
+
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "description": "Top 10 frog species nationally, compared across Australian states using FrogID 7.0.",
+
+  "width": "container",
+  "height": 420,
+
+  "data": {
+    "url": "data/top10_species_by_state.csv"
+  },
+
+  "mark": {
+    "type": "rect",
+    "stroke": "#FFFFFF",
+    "strokeWidth": 1.5,
+    "cornerRadius": 3
+  },
+
+  "encoding": {
+    "x": {
+      "field": "state",
+      "type": "nominal",
+      "title": "Australian state or territory",
+      "sort": [
+        "Western Australia",
+        "Northern Territory",
+        "South Australia",
+        "Queensland",
+        "New South Wales",
+        "Victoria",
+        "Australian Capital Territory",
+        "Tasmania"
+      ],
+      "axis": {
+        "labelAngle": -35,
+        "labelLimit": 105,
+        "labelFontSize": 11
+      }
+    },
+
+    "y": {
+      "field": "species",
+      "type": "nominal",
+      "title": "Frog species",
+      "sort": [
+        "Crinia signifera",
+        "Limnodynastes peronii",
+        "Pengilleyia peronii",
+        "Drymomantis fallax",
+        "Limnodynastes tasmaniensis",
+        "Crinia parinsignifera",
+        "Limnodynastes dumerilii",
+        "Pelodryas caerulea",
+        "Rawlinsonia ewingii",
+        "Rawlinsonia verreauxii"
+      ],
+      "axis": {
+        "labelFontSize": 11,
+        "labelLimit": 190,
+        "labelFontStyle": "italic"
+      }
+    },
+
+    "color": {
+      "field": "state_share_pct",
+      "type": "quantitative",
+      "title": "Share of state records (%)",
+      "scale": {
+        "scheme": "tealblues",
+        "domainMin": 0
+      },
+      "legend": {
+        "orient": "right",
+        "gradientLength": 220,
+        "format": ".0f"
+      }
+    },
+
+    "tooltip": [
+      {
+        "field": "state",
+        "type": "nominal",
+        "title": "State"
+      },
+      {
+        "field": "species",
+        "type": "nominal",
+        "title": "Species"
+      },
+      {
+        "field": "records",
+        "type": "quantitative",
+        "title": "Occurrence records",
+        "format": ","
+      },
+      {
+        "field": "state_share_pct",
+        "type": "quantitative",
+        "title": "Share of state records (%)",
+        "format": ".2f"
+      }
+    ]
+  },
+
+  "config": {
+    "background": "#FFFFFF",
+    "view": {
+      "stroke": null
+    },
+    "font": "Arial"
+  }
+}
